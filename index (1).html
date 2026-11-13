@@ -1,0 +1,1827 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¿Cuánta tapioca es demasiada tapioca?</title>
+    <meta
+      name="description"
+      content="Historia visual e interactiva sobre la cantidad ideal de tapioca para un vaso de 350 ml de milk bubble tea y su curva de temperatura y tiempo de cocción."
+    />
+    <meta property="og:title" content="¿Cuánta tapioca es demasiada tapioca?" />
+    <meta
+      property="og:description"
+      content="Descubre cuánta tapioca es ideal para un vaso de 350 ml y cómo varía la temperatura y el tiempo de cocción en cada etapa."
+    />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Tipografías de la guía de marca: More Sugar (títulos) y Bryndan Write (cuerpo), con respaldos web de estética afín -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/8045e81b6278984055ef0ac5561b93b3?family=More+Sugar"
+      rel="stylesheet"
+    />
+    <link
+      href="https://db.onlinewebfonts.com/c/20e48b2ec8c64b2a1ceb5b28d9bcc9d0?family=Bryndan+Write"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        /* Guía de marca */
+        --naranja-claro: #fff0c9;
+        --marron-apagado: #6c472a;
+        --naranja-apagado: #bc9678;
+        --naranja-intenso: #eb6d47;
+
+        /* Derivados armónicos para contraste y legibilidad */
+        --papel-elevado: #fff8e6;
+        --marron-oscuro: #4a2e19;
+        --borde-suave: rgba(108, 71, 42, 0.18);
+        --borde-medio: rgba(108, 71, 42, 0.34);
+        --sombra-suave: 0 10px 28px -14px rgba(108, 71, 42, 0.22);
+
+        --font-titulos: "More Sugar", "More Sugar Thin", "Fredoka", cursive, sans-serif;
+        --font-cuerpo: "Bryndan Write", "Patrick Hand", sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background-color: var(--naranja-claro);
+        color: var(--marron-apagado);
+        font-family: var(--font-cuerpo);
+        font-size: 18px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      button {
+        font-family: inherit;
+        cursor: pointer;
+      }
+
+      button:focus-visible,
+      a:focus-visible {
+        outline: 3px solid var(--naranja-intenso);
+        outline-offset: 3px;
+      }
+
+      .tabular {
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Barra superior editorial limpia */
+      .topbar {
+        border-bottom: 1px solid var(--borde-suave);
+        background-color: rgba(255, 240, 201, 0.92);
+        backdrop-filter: blur(6px);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+      }
+
+      .topbar-inner {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .brand-mark {
+        font-family: var(--font-titulos);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--marron-apagado);
+        text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links a {
+        color: var(--marron-apagado);
+        text-decoration: none;
+        font-size: 1rem;
+        white-space: nowrap;
+        padding-bottom: 2px;
+        border-bottom: 2px solid transparent;
+        transition: border-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+          color 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav-links a:hover {
+        color: var(--naranja-intenso);
+        border-bottom-color: var(--naranja-intenso);
+      }
+
+      .nav-action {
+        background-color: var(--naranja-intenso);
+        color: #fffdf7;
+        border: none;
+        border-radius: 10px;
+        padding: 8px 16px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        white-space: nowrap;
+        flex-shrink: 0;
+        transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1),
+          background-color 160ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav-action:hover {
+        background-color: #d85a34;
+        transform: translateY(-1px);
+      }
+
+      /* Contenedor principal */
+      .page {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 44px 24px 72px;
+      }
+
+      /* 1. Título y bajada */
+      .hero {
+        max-width: 820px;
+        margin: 0 auto 48px;
+        text-align: center;
+      }
+
+      .hero-kicker {
+        font-size: 0.98rem;
+        color: var(--naranja-apagado);
+        letter-spacing: 0.04em;
+        margin: 0 0 10px;
+      }
+
+      .hero h1 {
+        font-family: var(--font-titulos);
+        font-size: clamp(2.35rem, 4.6vw, 3.6rem);
+        line-height: 1.12;
+        color: var(--marron-apagado);
+        margin: 0 0 22px;
+        text-wrap: balance;
+      }
+
+      .hero h1 .accent-word {
+        color: var(--naranja-intenso);
+      }
+
+      .hero-bajada {
+        font-size: 1.18rem;
+        line-height: 1.72;
+        color: var(--marron-oscuro);
+        max-width: 66ch;
+        margin: 0 auto;
+        text-align: left;
+        background-color: var(--papel-elevado);
+        border: 1px solid var(--borde-suave);
+        border-radius: 18px;
+        padding: 22px 26px;
+        box-shadow: var(--sombra-suave);
+      }
+
+      .section-divider {
+        border: 0;
+        border-top: 1px solid var(--borde-suave);
+        margin: 52px 0;
+      }
+
+      .section-title {
+        font-family: var(--font-titulos);
+        font-size: clamp(1.65rem, 2.8vw, 2.25rem);
+        line-height: 1.2;
+        color: var(--marron-apagado);
+        margin: 0 0 10px;
+        text-wrap: balance;
+      }
+
+      .section-lead {
+        margin: 0 0 28px;
+        color: var(--marron-oscuro);
+        max-width: 68ch;
+      }
+
+      /* 2 & 3. Vaso de 350 ml + Gráfico 1 de bolas de tapioca */
+      .cup-and-chart {
+        display: grid;
+        grid-template-columns: minmax(290px, 0.92fr) minmax(360px, 1.28fr);
+        gap: 32px;
+        align-items: stretch;
+      }
+
+      .panel {
+        background-color: var(--papel-elevado);
+        border: 1px solid var(--borde-suave);
+        border-radius: 22px;
+        padding: 26px;
+        box-shadow: var(--sombra-suave);
+      }
+
+      .cup-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .cup-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-family: var(--font-titulos);
+        font-size: 1.25rem;
+        line-height: 1.3;
+        color: var(--marron-apagado);
+        margin-bottom: 8px;
+      }
+
+      .cup-stage {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 4px 0 12px;
+      }
+
+      .cup-svg {
+        width: 100%;
+        max-width: 330px;
+        height: auto;
+        overflow: visible;
+      }
+
+      .cup-hashtag {
+        font-family: var(--font-titulos);
+        font-size: 0.95rem;
+        color: var(--naranja-apagado);
+        letter-spacing: 0.04em;
+        margin-top: 2px;
+      }
+
+      .dose-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 14px;
+      }
+
+      .dose-btn {
+        background-color: var(--naranja-claro);
+        color: var(--marron-apagado);
+        border: 1.5px solid var(--borde-medio);
+        border-radius: 10px;
+        padding: 7px 14px;
+        font-size: 0.98rem;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1),
+          background-color 160ms cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 160ms cubic-bezier(0.16, 1, 0.3, 1),
+          color 160ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .dose-btn:hover {
+        border-color: var(--naranja-intenso);
+        transform: translateY(-1px);
+      }
+
+      .dose-btn.is-active {
+        background-color: var(--naranja-intenso);
+        border-color: var(--naranja-intenso);
+        color: #fffdf7;
+      }
+
+      .cup-readout {
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid var(--borde-suave);
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .cup-readout-grams {
+        font-family: var(--font-titulos);
+        font-size: 1.45rem;
+        color: var(--marron-apagado);
+      }
+
+      .cup-readout-status {
+        font-family: var(--font-titulos);
+        font-size: 1.2rem;
+        color: var(--naranja-intenso);
+      }
+
+      /* Gráfico 1: Bolas de tapioca */
+      .pearl-chart-header {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 20px;
+      }
+
+      .mascot-frame {
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        border: 2px solid var(--naranja-apagado);
+        overflow: hidden;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mascot-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .pearl-chart-title {
+        font-family: var(--font-titulos);
+        font-size: 1.45rem;
+        line-height: 1.2;
+        color: var(--marron-apagado);
+        margin: 0 0 4px;
+      }
+
+      .pearl-chart-sub {
+        margin: 0;
+        font-size: 0.96rem;
+        color: var(--naranja-apagado);
+      }
+
+      .pearl-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .pearl-row {
+        width: 100%;
+        text-align: left;
+        background-color: var(--naranja-claro);
+        border: 1.5px solid var(--borde-suave);
+        border-radius: 14px;
+        padding: 12px 16px;
+        display: grid;
+        grid-template-columns: 104px 1fr 132px;
+        align-items: center;
+        gap: 14px;
+        transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1),
+          border-color 180ms cubic-bezier(0.16, 1, 0.3, 1),
+          background-color 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .pearl-row:hover {
+        border-color: var(--naranja-intenso);
+        transform: translateX(3px);
+      }
+
+      .pearl-row.is-ideal {
+        background-color: rgba(235, 109, 71, 0.12);
+        border-color: rgba(235, 109, 71, 0.55);
+      }
+
+      .pearl-row.is-selected {
+        border-color: var(--naranja-intenso);
+        box-shadow: 0 0 0 2px rgba(235, 109, 71, 0.22);
+      }
+
+      .pearl-grams {
+        font-family: var(--font-titulos);
+        font-size: 1.12rem;
+        color: var(--marron-apagado);
+        white-space: nowrap;
+      }
+
+      .pearl-dots-track {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 6px;
+        min-height: 24px;
+      }
+
+      /* Indicador circular inspirado en la bola de tapioca de referencia */
+      .tapioca-dot {
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 65% 65%,
+          #4b2e1a 0%,
+          var(--marron-apagado) 55%,
+          #8f6241 100%
+        );
+        border: 2px solid #3a2212;
+        position: relative;
+        flex-shrink: 0;
+        transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .tapioca-dot::before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 3px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.88);
+      }
+
+      .pearl-row.is-ideal .tapioca-dot {
+        border-color: #3a2212;
+        box-shadow: 0 0 0 2px rgba(235, 109, 71, 0.32);
+      }
+
+      .pearl-row.is-overflow .tapioca-dot {
+        background: radial-gradient(
+          circle at 65% 65%,
+          #422614 0%,
+          #5e3b20 55%,
+          #7d5131 100%
+        );
+      }
+
+      .pearl-verdict {
+        text-align: right;
+        font-family: var(--font-titulos);
+        font-size: 1.05rem;
+        color: var(--marron-apagado);
+        white-space: nowrap;
+      }
+
+      .pearl-row.is-ideal .pearl-verdict {
+        color: var(--naranja-intenso);
+      }
+
+      .pearl-row.is-overflow .pearl-verdict {
+        color: #b44322;
+      }
+
+      .pearl-legend-note {
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px solid var(--borde-suave);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 0.95rem;
+        color: var(--marron-apagado);
+      }
+
+      .pearl-sample-key {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* 4. Considerar! + Receta */
+      .consider-grid {
+        display: grid;
+        grid-template-columns: minmax(320px, 1.25fr) minmax(260px, 0.75fr);
+        gap: 32px;
+        align-items: start;
+      }
+
+      .story-prose p {
+        margin: 0 0 18px;
+        font-size: 1.12rem;
+        line-height: 1.75;
+        color: var(--marron-oscuro);
+      }
+
+      .story-prose p:last-child {
+        margin-bottom: 0;
+      }
+
+      .recipe-summary {
+        background-color: var(--papel-elevado);
+        border: 1px solid var(--borde-suave);
+        border-radius: 20px;
+        padding: 22px 24px;
+        box-shadow: var(--sombra-suave);
+      }
+
+      .recipe-summary h3 {
+        font-family: var(--font-titulos);
+        font-size: 1.3rem;
+        margin: 0 0 14px;
+        color: var(--marron-apagado);
+      }
+
+      .recipe-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .recipe-list li {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--borde-suave);
+      }
+
+      .recipe-list li:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .recipe-amount {
+        font-family: var(--font-titulos);
+        color: var(--naranja-intenso);
+        white-space: nowrap;
+      }
+
+      /* 5, 6 & 7. Gráfico 2: Temperatura y tiempo cocción + Leyenda explicativa */
+      .cooking-section {
+        margin-top: 36px;
+      }
+
+      .cooking-grid {
+        display: grid;
+        grid-template-columns: minmax(420px, 1.45fr) minmax(280px, 0.75fr);
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .cooking-chart-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 14px;
+      }
+
+      .cooking-chart-title {
+        font-family: var(--font-titulos);
+        font-size: 1.55rem;
+        color: var(--marron-apagado);
+        margin: 0;
+      }
+
+      .cooking-legend {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 18px;
+        font-size: 0.96rem;
+      }
+
+      .legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--marron-apagado);
+      }
+
+      .legend-hatch {
+        width: 24px;
+        height: 14px;
+        border: 1.5px solid var(--naranja-apagado);
+        border-radius: 3px;
+        background: repeating-linear-gradient(
+          -45deg,
+          var(--naranja-apagado),
+          var(--naranja-apagado) 2px,
+          transparent 2px,
+          transparent 5px
+        );
+      }
+
+      .legend-line {
+        width: 26px;
+        height: 3px;
+        background-color: var(--naranja-intenso);
+        position: relative;
+        border-radius: 2px;
+      }
+
+      .legend-line::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: var(--naranja-intenso);
+        border: 2px solid var(--papel-elevado);
+      }
+
+      .cooking-svg-wrap {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .cooking-svg {
+        width: 100%;
+        min-width: 560px;
+        height: auto;
+        display: block;
+      }
+
+      .stage-group {
+        cursor: pointer;
+        transition: opacity 160ms ease;
+      }
+
+      .stage-group:focus-visible {
+        outline: none;
+      }
+
+      .legend-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .legend-panel h3 {
+        font-family: var(--font-titulos);
+        font-size: 1.35rem;
+        margin: 0 0 6px;
+        color: var(--marron-apagado);
+      }
+
+      .legend-panel-intro {
+        margin: 0 0 16px;
+        font-size: 0.98rem;
+        color: var(--naranja-apagado);
+      }
+
+      .stage-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .stage-card {
+        width: 100%;
+        text-align: left;
+        background-color: var(--naranja-claro);
+        border: 1.5px solid var(--borde-suave);
+        border-radius: 14px;
+        padding: 12px 14px;
+        transition: border-color 160ms cubic-bezier(0.16, 1, 0.3, 1),
+          background-color 160ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .stage-card:hover,
+      .stage-card.is-active {
+        border-color: var(--naranja-intenso);
+        background-color: rgba(235, 109, 71, 0.11);
+      }
+
+      .stage-card-top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+
+      .stage-card-name {
+        font-family: var(--font-titulos);
+        font-size: 1.06rem;
+        color: var(--marron-apagado);
+      }
+
+      .stage-card-metrics {
+        font-size: 0.95rem;
+        color: var(--naranja-intenso);
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .stage-card-desc {
+        margin: 0;
+        font-size: 0.96rem;
+        line-height: 1.48;
+        color: var(--marron-oscuro);
+      }
+
+      /* 8. Leyenda disclaimer */
+      .disclaimer-section {
+        margin-top: 52px;
+        padding-top: 28px;
+        border-top: 1px solid var(--borde-medio);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .disclaimer-body {
+        max-width: 70ch;
+      }
+
+      .disclaimer-title {
+        font-family: var(--font-titulos);
+        font-size: 1.2rem;
+        color: var(--marron-apagado);
+        margin: 0 0 8px;
+      }
+
+      .disclaimer-body p {
+        margin: 0 0 8px;
+        font-size: 1.02rem;
+        color: var(--marron-oscuro);
+      }
+
+      .disclaimer-meta {
+        font-size: 0.92rem;
+        color: var(--naranja-apagado);
+      }
+
+      @media (max-width: 960px) {
+        .cup-and-chart,
+        .consider-grid,
+        .cooking-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .nav-links {
+          display: none;
+        }
+
+        .pearl-row {
+          grid-template-columns: 90px 1fr;
+          gap: 8px 12px;
+        }
+
+        .pearl-verdict {
+          grid-column: 1 / -1;
+          text-align: left;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a href="#inicio" class="brand-mark">Vaso de 350 ml</a>
+        <nav aria-label="Secciones de la historia">
+          <ul class="nav-links">
+            <li><a href="#inicio">Historia</a></li>
+            <li><a href="#dosis-tapioca">Dosis ideal</a></li>
+            <li><a href="#considerar">Receta base</a></li>
+            <li><a href="#coccion">Cocción</a></li>
+          </ul>
+        </nav>
+        <button type="button" class="nav-action" id="btn-reset-ideal">
+          Ver dosis ideal (25 g)
+        </button>
+      </div>
+    </header>
+
+    <main class="page" id="inicio">
+      <!-- 1. TÍTULO Y BAJADA -->
+      <section class="hero" aria-labelledby="titulo-principal">
+        <p class="hero-kicker">Guía ilustrada · Milk Bubble Tea · Vaso de 350 ml</p>
+        <h1 id="titulo-principal">
+          ¿Cuánta tapioca es <span class="accent-word">demasiada</span> tapioca?
+        </h1>
+        <p class="hero-bajada">
+          Las perlas de tapioca están hechas de almidón de yuca. En la mayoría de las
+          tiendas asiáticas se encuentran en dos formatos: perlas secas que son
+          pequeñas, duras, se cocinan en 30 minutos; y perlas de cocción rápida,
+          pre-gelatinizadas, que se cocinan en 5 minutos. Las rápidas funcionan para
+          salir del paso, pero la textura es inferior.
+        </p>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- 2 & 3. VASO DE 350 ML + GRÁFICO DE INTERVALOS DE 10 G -->
+      <section id="dosis-tapioca" aria-labelledby="subtitulo-dosis">
+        <h2 class="section-title" id="subtitulo-dosis">
+          La proporción exacta en un vaso de 350 ml
+        </h2>
+        <p class="section-lead">
+          Explora cómo cambia la experiencia del vaso al variar la dosis de tapioca seca
+          en intervalos de 10 gramos, partiendo desde 5 gramos hasta 45 gramos. Haz clic
+          en cualquier fila para llenar el vaso.
+        </p>
+
+        <div class="cup-and-chart">
+          <!-- Vaso Boba Cute (Boceto #2 y #3) -->
+          <article class="panel cup-panel" aria-label="Vaso de 350 ml interactivo">
+            <div>
+              <div class="cup-note">
+                <span>Consideraremos un vaso de 350 ml</span>
+                <svg
+                  width="36"
+                  height="28"
+                  viewBox="0 0 36 28"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 6 C14 6, 22 12, 28 22"
+                    stroke="#6C472A"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M21 21 L29 23 L29 14"
+                    stroke="#6C472A"
+                    stroke-width="2.4"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+
+              <div class="cup-stage">
+                <svg
+                  class="cup-svg"
+                  viewBox="0 0 360 320"
+                  role="img"
+                  aria-labelledby="cup-svg-title"
+                >
+                  <title id="cup-svg-title">
+                    Ilustración de vaso boba de 350 ml mostrando la cantidad de perlas de tapioca
+                  </title>
+                  <defs>
+                    <clipPath id="cup-interior-clip">
+                      <path d="M98 134 L222 134 L203 272 C201 278 196 282 190 282 L130 282 C124 282 119 278 117 272 Z" />
+                    </clipPath>
+                  </defs>
+
+                  <!-- Bombilla -->
+                  <path
+                    d="M174 34 L192 34 L168 134 L151 134 Z"
+                    fill="#6C472A"
+                  />
+
+                  <!-- Tapa domo -->
+                  <path
+                    d="M84 122 C84 72, 120 44, 160 44 C200 44, 236 72, 236 122 Z"
+                    fill="#FFF8E6"
+                    stroke="#6C472A"
+                    stroke-width="6"
+                    stroke-linejoin="round"
+                  />
+                  <!-- Borde tapa -->
+                  <rect
+                    x="74"
+                    y="116"
+                    width="172"
+                    height="18"
+                    rx="9"
+                    fill="#FFF0C9"
+                    stroke="#6C472A"
+                    stroke-width="6"
+                  />
+
+                  <!-- Fondo té con leche dentro del vaso -->
+                  <g clip-path="url(#cup-interior-clip)">
+                    <rect x="90" y="134" width="140" height="156" fill="#F6E1BC" />
+                    <!-- Capa sutil superior de leche -->
+                    <rect x="90" y="134" width="140" height="30" fill="#FFF7DF" opacity="0.55" />
+                    <!-- Perlas dinámicas dibujadas por JS -->
+                    <g id="cup-pearls-layer"></g>
+                  </g>
+
+                  <!-- Contorno del vaso -->
+                  <path
+                    d="M95 134 L225 134 L205 273 C203 280 197 285 189 285 L131 285 C123 285 117 280 115 273 Z"
+                    fill="none"
+                    stroke="#6C472A"
+                    stroke-width="6"
+                    stroke-linejoin="round"
+                  />
+
+                  <!-- Cara tierna del vaso (#Vaso Boba Cute) -->
+                  <g aria-hidden="true">
+                    <!-- Ojos -->
+                    <circle cx="136" cy="176" r="8" fill="#6C472A" />
+                    <circle cx="133" cy="173" r="2.4" fill="#FFFFFF" />
+                    <circle cx="184" cy="176" r="8" fill="#6C472A" />
+                    <circle cx="181" cy="173" r="2.4" fill="#FFFFFF" />
+                    <!-- Mejillas -->
+                    <ellipse cx="122" cy="187" rx="8" ry="4.5" fill="#EB6D47" opacity="0.72" />
+                    <ellipse cx="198" cy="187" rx="8" ry="4.5" fill="#EB6D47" opacity="0.72" />
+                    <!-- Sonrisa -->
+                    <path
+                      d="M152 186 Q160 194 168 186"
+                      fill="none"
+                      stroke="#6C472A"
+                      stroke-width="3.5"
+                      stroke-linecap="round"
+                    />
+                    <!-- Brazos y pies -->
+                    <path
+                      d="M100 186 C86 188, 82 198, 88 205"
+                      fill="none"
+                      stroke="#6C472A"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M220 186 C234 188, 238 198, 232 205"
+                      fill="none"
+                      stroke="#6C472A"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M142 285 L140 301 C140 305, 134 305, 134 300"
+                      fill="none"
+                      stroke="#6C472A"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M178 285 L180 301 C180 305, 186 305, 186 300"
+                      fill="none"
+                      stroke="#6C472A"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                    />
+                  </g>
+
+                  <!-- Flechas de referencia del boceto (Demasiada / Perfecto / Nada) -->
+                  <g id="cup-zone-high" class="cup-zone">
+                    <path
+                      d="M228 220 C248 205, 250 165, 266 150"
+                      fill="none"
+                      stroke="#BC9678"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M259 149 L268 148 L266 157"
+                      fill="none"
+                      stroke="#BC9678"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <text
+                      x="274"
+                      y="148"
+                      fill="#6C472A"
+                      font-family="More Sugar, Fredoka, sans-serif"
+                      font-size="14"
+                    >
+                      Demasiada
+                    </text>
+                    <text
+                      x="274"
+                      y="165"
+                      fill="#6C472A"
+                      font-family="More Sugar, Fredoka, sans-serif"
+                      font-size="14"
+                    >
+                      tapioca
+                    </text>
+                  </g>
+
+                  <g id="cup-zone-ideal" class="cup-zone">
+                    <path
+                      d="M222 246 L264 246"
+                      fill="none"
+                      stroke="#EB6D47"
+                      stroke-width="2.8"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M258 240 L266 246 L258 252"
+                      fill="none"
+                      stroke="#EB6D47"
+                      stroke-width="2.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <text
+                      x="274"
+                      y="251"
+                      fill="#EB6D47"
+                      font-family="More Sugar, Fredoka, sans-serif"
+                      font-size="16"
+                      font-weight="700"
+                    >
+                      Perfecto
+                    </text>
+                  </g>
+
+                  <g id="cup-zone-low" class="cup-zone">
+                    <path
+                      d="M212 272 C234 274, 242 290, 264 292"
+                      fill="none"
+                      stroke="#BC9678"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                    />
+                    <path
+                      d="M258 286 L266 292 L258 297"
+                      fill="none"
+                      stroke="#BC9678"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <text
+                      x="274"
+                      y="292"
+                      fill="#6C472A"
+                      font-family="More Sugar, Fredoka, sans-serif"
+                      font-size="14"
+                    >
+                      ¡Muy poca
+                    </text>
+                    <text
+                      x="274"
+                      y="309"
+                      fill="#6C472A"
+                      font-family="More Sugar, Fredoka, sans-serif"
+                      font-size="14"
+                    >
+                      tapioca!
+                    </text>
+                  </g>
+                </svg>
+                <span class="cup-hashtag">#Vaso Boba Cute</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="dose-controls" role="group" aria-label="Seleccionar gramos de tapioca">
+                <button type="button" class="dose-btn tabular" data-grams="5">5 g</button>
+                <button type="button" class="dose-btn tabular" data-grams="15">15 g</button>
+                <button type="button" class="dose-btn tabular is-active" data-grams="25">
+                  25 g
+                </button>
+                <button type="button" class="dose-btn tabular" data-grams="35">35 g</button>
+                <button type="button" class="dose-btn tabular" data-grams="45">45 g</button>
+              </div>
+
+              <div class="cup-readout">
+                <span class="cup-readout-grams tabular" id="cup-readout-grams">
+                  25 gramos de tapioca seca
+                </span>
+                <span class="cup-readout-status" id="cup-readout-status">
+                  cantidad ideal
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Gráfico 1: Bolas de tapioca en intervalos de 10 gramos -->
+          <article class="panel" aria-label="Gráfico de bolas de tapioca para un vaso de 350 ml">
+            <div class="pearl-chart-header">
+              <div class="mascot-frame">
+                <img
+                  src="/assets/aistudio/tapioca-pearl-mascot-with-pointing-right-gesture-vector_36ec0b23.jpg"
+                  alt="Mascota de perla de tapioca señalando hacia el gráfico"
+                  id="tapioca-mascot-img"
+                />
+              </div>
+              <div>
+                <h3 class="pearl-chart-title">
+                  Cantidad de tapioca para un vaso de 350 ml
+                </h3>
+                <p class="pearl-chart-sub">
+                  Intervalos de 10 gramos (desde 5 gramos) · Referencia ideal: 25 gramos
+                </p>
+              </div>
+            </div>
+
+            <div class="pearl-rows" id="pearl-rows" role="list">
+              <!-- Se renderiza dinámicamente con los 5 intervalos exactos -->
+            </div>
+
+            <div class="pearl-legend-note">
+              <span class="pearl-sample-key">
+                <span class="tapioca-dot" aria-hidden="true"></span>
+                <span>Cada bola de tapioca = 2,5 gramos de tapioca seca</span>
+              </span>
+              <span class="tabular">25 g = ¼ de taza cocida</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <hr class="section-divider" />
+
+      <!-- 4. CONSIDERAR! + PÁRRAFO PRINCIPAL -->
+      <section id="considerar" aria-labelledby="titulo-considerar">
+        <h2 class="section-title" id="titulo-considerar">¡Considerar!</h2>
+        <div class="consider-grid">
+          <div class="story-prose">
+            <p>
+              La receta de un milk bubble tea clásico parte por su base de té, Assam o
+              Ceylan. Una taza de 240 ml es suficiente. Luego se le agrega ½ taza o 120 ml
+              de leche, 2 a 4 cucharadas de jarabe al gusto y ¼ de taza de perlas de
+              tapioca cocida, equivalente a 25 gramos de tapioca seca.
+            </p>
+            <p>
+              Esta es la cantidad adecuada de tapioca para un vaso de 350 ml, que logra
+              equilibrar el sabor del té con la textura de las perlas y sus notas a jarabe
+              o caramelo.
+            </p>
+          </div>
+
+          <aside class="recipe-summary" aria-label="Resumen de medidas para vaso de 350 ml">
+            <h3>Base clásica (vaso de 350 ml)</h3>
+            <ul class="recipe-list">
+              <li>
+                <span>Base de té (Assam o Ceylan)</span>
+                <span class="recipe-amount tabular">240 ml (1 taza)</span>
+              </li>
+              <li>
+                <span>Leche</span>
+                <span class="recipe-amount tabular">120 ml (½ taza)</span>
+              </li>
+              <li>
+                <span>Jarabe al gusto</span>
+                <span class="recipe-amount tabular">2 a 4 cdas</span>
+              </li>
+              <li>
+                <span>Perlas de tapioca cocida</span>
+                <span class="recipe-amount tabular">¼ taza (25 g secas)</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 5, 6 & 7. GRÁFICO TEMPERATURA Y TIEMPO COCCIÓN + LEYENDA EXPLICATIVA -->
+      <section class="cooking-section" id="coccion" aria-labelledby="titulo-coccion">
+        <div class="cooking-grid">
+          <article class="panel" aria-label="Gráfico de temperatura y tiempo de cocción">
+            <div class="cooking-chart-header">
+              <h3 class="cooking-chart-title" id="titulo-coccion">
+                Temperatura y tiempo cocción
+              </h3>
+              <div class="cooking-legend">
+                <span class="legend-item">
+                  <span class="legend-hatch" aria-hidden="true"></span>
+                  <span>Duración etapa (min)</span>
+                </span>
+                <span class="legend-item">
+                  <span class="legend-line" aria-hidden="true"></span>
+                  <span>Temperatura (°C)</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="cooking-svg-wrap">
+              <svg
+                class="cooking-svg"
+                id="cooking-svg"
+                viewBox="0 0 760 410"
+                role="img"
+                aria-label="Gráfico combinado de duración en minutos y temperatura del agua en grados Celsius en cuatro etapas de cocción"
+              >
+                <defs>
+                  <pattern
+                    id="hatch-pattern"
+                    width="9"
+                    height="9"
+                    patternTransform="rotate(42 0 0)"
+                    patternUnits="userSpaceOnUse"
+                  >
+                    <line
+                      x1="0"
+                      y1="0"
+                      x2="0"
+                      y2="9"
+                      stroke="#BC9678"
+                      stroke-width="2.6"
+                    />
+                  </pattern>
+                </defs>
+
+                <!-- Líneas guía horizontales -->
+                <g id="cooking-gridlines"></g>
+
+                <!-- Eje Y izquierdo: Tiempo de cocción (minutos) -->
+                <line x1="88" y1="56" x2="88" y2="330" stroke="#6C472A" stroke-width="2.4" />
+                <text
+                  x="26"
+                  y="193"
+                  transform="rotate(-90 26 193)"
+                  text-anchor="middle"
+                  fill="#6C472A"
+                  font-family="Bryndan Write, Patrick Hand, sans-serif"
+                  font-size="16"
+                  font-weight="600"
+                >
+                  Tiempo de cocción (minutos)
+                </text>
+                <g id="left-axis-ticks"></g>
+
+                <!-- Eje Y derecho: Temperatura del agua (°C) -->
+                <line x1="660" y1="56" x2="660" y2="330" stroke="#EB6D47" stroke-width="2.4" />
+                <text
+                  x="732"
+                  y="186"
+                  transform="rotate(-90 732 186)"
+                  text-anchor="middle"
+                  fill="#EB6D47"
+                  font-family="Bryndan Write, Patrick Hand, sans-serif"
+                  font-size="16"
+                  font-weight="600"
+                >
+                  Temperatura del agua (°C)
+                </text>
+                <g id="right-axis-ticks"></g>
+
+                <!-- Eje X -->
+                <line x1="88" y1="330" x2="660" y2="330" stroke="#6C472A" stroke-width="2.4" />
+
+                <!-- Barras achuradas + Línea de temperatura + Etiquetas -->
+                <g id="cooking-bars-layer"></g>
+                <g id="cooking-temp-layer"></g>
+              </svg>
+            </div>
+          </article>
+
+          <!-- 7. Leyenda explicativa -->
+          <aside class="panel legend-panel" aria-label="Leyenda explicativa de cocción">
+            <div>
+              <h3>Leyenda explicativa</h3>
+              <p class="legend-panel-intro">
+                Selecciona una etapa para resaltarla en el gráfico y revisar su rol en la
+                textura de la perla.
+              </p>
+
+              <div class="stage-cards" id="stage-cards">
+                <!-- Se renderiza dinámicamente -->
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 8. LEYENDA DISCLAIMER -->
+      <footer class="disclaimer-section" aria-label="Nota referencial">
+        <div class="disclaimer-body">
+          <h2 class="disclaimer-title">Nota referencial</h2>
+          <p>
+            Esta medida es solo referencial, basada en diversas recetas para preparar la
+            taza perfecta de milk bubble tea en casa. Tú puedes agregar la cantidad de
+            tapiocas que más te guste.
+          </p>
+          <p class="disclaimer-meta tabular">
+            Referencia visual: vaso de 350 ml · Dosis ideal sugerida: 25 gramos de tapioca
+            seca (¼ de taza cocida).
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      (function () {
+        "use strict";
+
+        // Respaldo SVG en caso de abrir index.html sin servidor local
+        var mascotImg = document.getElementById("tapioca-mascot-img");
+        if (mascotImg) {
+          mascotImg.addEventListener("error", function () {
+            var fallbackSvg =
+              '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">' +
+              '<rect width="120" height="120" fill="#ffffff"/>' +
+              '<circle cx="52" cy="62" r="34" fill="#6C472A" stroke="#3A2212" stroke-width="4"/>' +
+              '<circle cx="40" cy="46" r="8" fill="#ffffff" opacity="0.85"/>' +
+              '<circle cx="43" cy="60" r="4.5" fill="#1f1209"/>' +
+              '<circle cx="62" cy="60" r="4.5" fill="#1f1209"/>' +
+              '<path d="M48 69 Q52.5 74 57 69" fill="none" stroke="#1f1209" stroke-width="3" stroke-linecap="round"/>' +
+              '<path d="M84 58 L108 58" stroke="#3A2212" stroke-width="8" stroke-linecap="round"/>' +
+              '<path d="M84 58 L108 58" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>' +
+              "</svg>";
+            mascotImg.src = "data:image/svg+xml;utf8," + encodeURIComponent(fallbackSvg);
+          });
+        }
+
+        // Datos exactos del Gráfico 1 (intervalos de 10 g desde 5 g hasta 45 g)
+        var DOSE_INTERVALS = [
+          { grams: 5, label: "5 gramos", verdict: "muy poco", balls: 2, cupBalls: 3, zone: "low" },
+          { grams: 15, label: "15 gramos", verdict: "poco", balls: 6, cupBalls: 9, zone: "low" },
+          { grams: 25, label: "25 gramos", verdict: "cantidad ideal", balls: 10, cupBalls: 18, zone: "ideal" },
+          { grams: 35, label: "35 gramos", verdict: "mucho", balls: 14, cupBalls: 28, zone: "high" },
+          { grams: 45, label: "45 gramos", verdict: "intomable", balls: 18, cupBalls: 40, zone: "high" }
+        ];
+
+        var selectedGrams = 25;
+
+        var pearlRowsEl = document.getElementById("pearl-rows");
+        var cupPearlsLayer = document.getElementById("cup-pearls-layer");
+        var readoutGramsEl = document.getElementById("cup-readout-grams");
+        var readoutStatusEl = document.getElementById("cup-readout-status");
+        var doseButtons = document.querySelectorAll(".dose-btn");
+        var resetIdealBtn = document.getElementById("btn-reset-ideal");
+
+        var zoneHigh = document.getElementById("cup-zone-high");
+        var zoneIdeal = document.getElementById("cup-zone-ideal");
+        var zoneLow = document.getElementById("cup-zone-low");
+
+        function renderPearlRows() {
+          pearlRowsEl.innerHTML = "";
+          DOSE_INTERVALS.forEach(function (item) {
+            var row = document.createElement("button");
+            row.type = "button";
+            row.setAttribute("role", "listitem");
+            row.className = "pearl-row";
+            if (item.grams === 25) row.classList.add("is-ideal");
+            if (item.grams >= 35) row.classList.add("is-overflow");
+            if (item.grams === selectedGrams) row.classList.add("is-selected");
+            row.setAttribute(
+              "aria-label",
+              item.label + " de tapioca: " + item.verdict
+            );
+
+            var gramsSpan = document.createElement("span");
+            gramsSpan.className = "pearl-grams tabular";
+            gramsSpan.textContent = item.label;
+
+            var track = document.createElement("span");
+            track.className = "pearl-dots-track";
+            track.setAttribute("aria-hidden", "true");
+            for (var i = 0; i < item.balls; i++) {
+              var dot = document.createElement("span");
+              dot.className = "tapioca-dot";
+              track.appendChild(dot);
+            }
+
+            var verdictSpan = document.createElement("span");
+            verdictSpan.className = "pearl-verdict";
+            verdictSpan.textContent = item.verdict;
+
+            row.appendChild(gramsSpan);
+            row.appendChild(track);
+            row.appendChild(verdictSpan);
+
+            row.addEventListener("click", function () {
+              setSelectedDose(item.grams);
+            });
+
+            pearlRowsEl.appendChild(row);
+          });
+        }
+
+        function renderCupPearls(count) {
+          cupPearlsLayer.innerHTML = "";
+          var ns = "http://www.w3.org/2000/svg";
+          var pearlColors = ["#EB6D47", "#6C472A", "#BC9678"];
+          var cols = 7;
+          var startX = 123;
+          var spacingX = 12.5;
+          var baseY = 272;
+          var spacingY = 12;
+
+          for (var i = 0; i < count; i++) {
+            var rowIndex = Math.floor(i / cols);
+            var colIndex = i % cols;
+            var xOffset = rowIndex % 2 === 1 ? 5 : 0;
+            var cx = startX + colIndex * spacingX + xOffset;
+            var cy = baseY - rowIndex * spacingY;
+
+            // Color por capas como en el boceto #Vaso Boba Cute
+            var fill = pearlColors[rowIndex % pearlColors.length];
+
+            var circle = document.createElementNS(ns, "circle");
+            circle.setAttribute("cx", cx.toFixed(1));
+            circle.setAttribute("cy", cy.toFixed(1));
+            circle.setAttribute("r", "5.3");
+            circle.setAttribute("fill", fill);
+            circle.setAttribute("stroke", "#4A2E19");
+            circle.setAttribute("stroke-width", "1.4");
+            cupPearlsLayer.appendChild(circle);
+
+            var shine = document.createElementNS(ns, "circle");
+            shine.setAttribute("cx", (cx - 1.7).toFixed(1));
+            shine.setAttribute("cy", (cy - 1.7).toFixed(1));
+            shine.setAttribute("r", "1.3");
+            shine.setAttribute("fill", "#FFFFFF");
+            shine.setAttribute("opacity", "0.8");
+            cupPearlsLayer.appendChild(shine);
+          }
+        }
+
+        function setSelectedDose(grams) {
+          selectedGrams = grams;
+          var active = DOSE_INTERVALS.find(function (d) {
+            return d.grams === grams;
+          });
+          if (!active) return;
+
+          readoutGramsEl.textContent = active.label + " de tapioca seca";
+          readoutStatusEl.textContent = active.verdict;
+
+          doseButtons.forEach(function (btn) {
+            var btnGrams = Number(btn.getAttribute("data-grams"));
+            btn.classList.toggle("is-active", btnGrams === grams);
+          });
+
+          // Resaltar zona correspondiente en el boceto del vaso
+          zoneLow.style.opacity = active.zone === "low" ? "1" : "0.38";
+          zoneIdeal.style.opacity = active.zone === "ideal" ? "1" : "0.38";
+          zoneHigh.style.opacity = active.zone === "high" ? "1" : "0.38";
+
+          renderCupPearls(active.cupBalls);
+          renderPearlRows();
+        }
+
+        doseButtons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            setSelectedDose(Number(btn.getAttribute("data-grams")));
+          });
+        });
+
+        if (resetIdealBtn) {
+          resetIdealBtn.addEventListener("click", function () {
+            setSelectedDose(25);
+            var target = document.getElementById("dosis-tapioca");
+            if (target) target.scrollIntoView({ behavior: "smooth" });
+          });
+        }
+
+        // Datos exactos del Gráfico 2: Temperatura y tiempo cocción (Imagen 4)
+        var COOKING_STAGES = [
+          {
+            id: 1,
+            name: "1. Hervor inicial",
+            durationLabel: "Agua a 100°C",
+            barMinutes: 1.8, // barra inicial baja tal como en el gráfico de referencia
+            tempC: 100,
+            tempLabel: "100°C",
+            explanation:
+              "El agua debe alcanzar ebullición firme (100°C) antes de agregar las perlas secas para sellar el almidón de yuca por fuera."
+          },
+          {
+            id: 2,
+            name: "2. Cocción real",
+            durationLabel: "20-30 min",
+            barMinutes: 25, // punto medio visual del rango 20-30 min
+            tempC: 95,
+            tempLabel: "95°C",
+            explanation:
+              "Cocción constante a 95°C durante 20-30 min con movimientos suaves para evitar que se peguen al fondo."
+          },
+          {
+            id: 3,
+            name: "3. Reposo",
+            durationLabel: "20-30 min",
+            barMinutes: 25,
+            tempC: 75,
+            tempLabel: "75°C",
+            explanation:
+              "Con la olla tapada fuera del fuego, la temperatura desciende hacia 75°C durante 20-30 min para ablandar el centro."
+          },
+          {
+            id: 4,
+            name: "4. Enjuague",
+            durationLabel: "1-2 min",
+            barMinutes: 1.8,
+            tempC: 20,
+            tempLabel: "20°C",
+            explanation:
+              "Enjuague breve de 1-2 min con agua fría (20°C) para retirar el exceso de almidón y fijar la textura elástica."
+          }
+        ];
+
+        var activeStageId = 2;
+
+        function yFromMinutes(min) {
+          // Eje izquierdo: 0 -> 330, 35 -> 56
+          return 330 - (min / 35) * (330 - 56);
+        }
+
+        function yFromTemp(temp) {
+          // Eje derecho: 0 -> 330, 100 -> 56
+          return 330 - (temp / 100) * (330 - 56);
+        }
+
+        function renderCookingChart() {
+          var ns = "http://www.w3.org/2000/svg";
+          var gridEl = document.getElementById("cooking-gridlines");
+          var leftTicksEl = document.getElementById("left-axis-ticks");
+          var rightTicksEl = document.getElementById("right-axis-ticks");
+          var barsLayer = document.getElementById("cooking-bars-layer");
+          var tempLayer = document.getElementById("cooking-temp-layer");
+          var cardsEl = document.getElementById("stage-cards");
+
+          gridEl.innerHTML = "";
+          leftTicksEl.innerHTML = "";
+          rightTicksEl.innerHTML = "";
+          barsLayer.innerHTML = "";
+          tempLayer.innerHTML = "";
+          cardsEl.innerHTML = "";
+
+          // Ticks izquierdo (0..35 cada 5 min)
+          for (var m = 0; m <= 35; m += 5) {
+            var yM = yFromMinutes(m);
+            var gridLine = document.createElementNS(ns, "line");
+            gridLine.setAttribute("x1", "88");
+            gridLine.setAttribute("y1", yM.toFixed(1));
+            gridLine.setAttribute("x2", "660");
+            gridLine.setAttribute("y2", yM.toFixed(1));
+            gridLine.setAttribute("stroke", "#6C472A");
+            gridLine.setAttribute("stroke-opacity", m === 0 ? "0" : "0.10");
+            gridLine.setAttribute("stroke-dasharray", "4 4");
+            gridEl.appendChild(gridLine);
+
+            var tickTextL = document.createElementNS(ns, "text");
+            tickTextL.setAttribute("x", "78");
+            tickTextL.setAttribute("y", (yM + 5).toFixed(1));
+            tickTextL.setAttribute("text-anchor", "end");
+            tickTextL.setAttribute("fill", "#6C472A");
+            tickTextL.setAttribute("font-family", "Bryndan Write, Patrick Hand, sans-serif");
+            tickTextL.setAttribute("font-size", "14");
+            tickTextL.textContent = String(m);
+            leftTicksEl.appendChild(tickTextL);
+          }
+
+          // Ticks derecho (0..100 cada 20 °C)
+          for (var t = 0; t <= 100; t += 20) {
+            var yT = yFromTemp(t);
+            var tickTextR = document.createElementNS(ns, "text");
+            tickTextR.setAttribute("x", "672");
+            tickTextR.setAttribute("y", (yT + 5).toFixed(1));
+            tickTextR.setAttribute("text-anchor", "start");
+            tickTextR.setAttribute("fill", "#EB6D47");
+            tickTextR.setAttribute("font-family", "Bryndan Write, Patrick Hand, sans-serif");
+            tickTextR.setAttribute("font-size", "14");
+            tickTextR.textContent = String(t);
+            rightTicksEl.appendChild(tickTextR);
+          }
+
+          var stageCentersX = [166, 316, 466, 600];
+          var barWidth = 68;
+          var tempPoints = [];
+
+          COOKING_STAGES.forEach(function (stage, idx) {
+            var cx = stageCentersX[idx];
+            var barTopY = yFromMinutes(stage.barMinutes);
+            var barHeight = 330 - barTopY;
+            var isSelected = stage.id === activeStageId;
+
+            var group = document.createElementNS(ns, "g");
+            group.setAttribute("class", "stage-group");
+            group.setAttribute("tabindex", "0");
+            group.setAttribute("role", "button");
+            group.setAttribute(
+              "aria-label",
+              stage.name + ": " + stage.durationLabel + ", " + stage.tempLabel
+            );
+
+            // Halo sutil de selección
+            if (isSelected) {
+              var highlight = document.createElementNS(ns, "rect");
+              highlight.setAttribute("x", (cx - 56).toFixed(1));
+              highlight.setAttribute("y", "56");
+              highlight.setAttribute("width", "112");
+              highlight.setAttribute("height", "274");
+              highlight.setAttribute("rx", "12");
+              highlight.setAttribute("fill", "#EB6D47");
+              highlight.setAttribute("fill-opacity", "0.08");
+              group.appendChild(highlight);
+            }
+
+            // Barra achurada
+            var bar = document.createElementNS(ns, "rect");
+            bar.setAttribute("x", (cx - barWidth / 2).toFixed(1));
+            bar.setAttribute("y", barTopY.toFixed(1));
+            bar.setAttribute("width", String(barWidth));
+            bar.setAttribute("height", barHeight.toFixed(1));
+            bar.setAttribute("fill", "url(#hatch-pattern)");
+            bar.setAttribute("stroke", isSelected ? "#6C472A" : "#BC9678");
+            bar.setAttribute("stroke-width", isSelected ? "2.4" : "1.8");
+            bar.setAttribute("rx", "3");
+            group.appendChild(bar);
+
+            // Etiqueta de duración sobre la barra (conserva los valores exactos)
+            var durText = document.createElementNS(ns, "text");
+            durText.setAttribute("x", cx.toFixed(1));
+            durText.setAttribute("y", (barTopY - 12).toFixed(1));
+            durText.setAttribute("text-anchor", "middle");
+            durText.setAttribute("fill", "#6C472A");
+            durText.setAttribute("stroke", "#FFF8E6");
+            durText.setAttribute("stroke-width", "4");
+            durText.setAttribute("paint-order", "stroke");
+            durText.setAttribute("font-family", "Bryndan Write, Patrick Hand, sans-serif");
+            durText.setAttribute("font-size", "14");
+            durText.setAttribute("font-weight", "600");
+            durText.textContent = stage.durationLabel;
+            group.appendChild(durText);
+
+            // Etiqueta de etapa bajo el eje X (en dos líneas si hace falta)
+            var parts = stage.name.split(" ");
+            var line1 = parts[0] + " " + parts[1];
+            var line2 = parts.slice(2).join(" ");
+
+            var xText1 = document.createElementNS(ns, "text");
+            xText1.setAttribute("x", cx.toFixed(1));
+            xText1.setAttribute("y", "356");
+            xText1.setAttribute("text-anchor", "middle");
+            xText1.setAttribute("fill", isSelected ? "#EB6D47" : "#6C472A");
+            xText1.setAttribute("font-family", "More Sugar, Fredoka, sans-serif");
+            xText1.setAttribute("font-size", "14");
+            xText1.textContent = line1;
+            group.appendChild(xText1);
+
+            if (line2) {
+              var xText2 = document.createElementNS(ns, "text");
+              xText2.setAttribute("x", cx.toFixed(1));
+              xText2.setAttribute("y", "375");
+              xText2.setAttribute("text-anchor", "middle");
+              xText2.setAttribute("fill", isSelected ? "#EB6D47" : "#6C472A");
+              xText2.setAttribute("font-family", "More Sugar, Fredoka, sans-serif");
+              xText2.setAttribute("font-size", "14");
+              xText2.textContent = line2;
+              group.appendChild(xText2);
+            }
+
+            group.addEventListener("click", function () {
+              activeStageId = stage.id;
+              renderCookingChart();
+            });
+            group.addEventListener("keydown", function (ev) {
+              if (ev.key === "Enter" || ev.key === " ") {
+                ev.preventDefault();
+                activeStageId = stage.id;
+                renderCookingChart();
+              }
+            });
+
+            barsLayer.appendChild(group);
+
+            tempPoints.push({
+              x: cx,
+              y: yFromTemp(stage.tempC),
+              stage: stage
+            });
+
+            // Tarjeta en la leyenda explicativa
+            var card = document.createElement("button");
+            card.type = "button";
+            card.className = "stage-card" + (isSelected ? " is-active" : "");
+
+            var cardTop = document.createElement("div");
+            cardTop.className = "stage-card-top";
+
+            var nameSpan = document.createElement("span");
+            nameSpan.className = "stage-card-name";
+            nameSpan.textContent = stage.name;
+
+            var metricSpan = document.createElement("span");
+            metricSpan.className = "stage-card-metrics tabular";
+            metricSpan.textContent = stage.durationLabel + " · " + stage.tempLabel;
+
+            cardTop.appendChild(nameSpan);
+            cardTop.appendChild(metricSpan);
+
+            var descP = document.createElement("p");
+            descP.className = "stage-card-desc";
+            descP.textContent = stage.explanation;
+
+            card.appendChild(cardTop);
+            card.appendChild(descP);
+
+            card.addEventListener("click", function () {
+              activeStageId = stage.id;
+              renderCookingChart();
+            });
+
+            cardsEl.appendChild(card);
+          });
+
+          // Curva suave naranja de temperatura (°C)
+          var pathD = "M " + tempPoints[0].x + " " + tempPoints[0].y.toFixed(1);
+          for (var p = 0; p < tempPoints.length - 1; p++) {
+            var curr = tempPoints[p];
+            var next = tempPoints[p + 1];
+            var midX = (curr.x + next.x) / 2;
+            pathD +=
+              " C " +
+              midX.toFixed(1) +
+              " " +
+              curr.y.toFixed(1) +
+              ", " +
+              midX.toFixed(1) +
+              " " +
+              next.y.toFixed(1) +
+              ", " +
+              next.x.toFixed(1) +
+              " " +
+              next.y.toFixed(1);
+          }
+
+          var tempPath = document.createElementNS(ns, "path");
+          tempPath.setAttribute("d", pathD);
+          tempPath.setAttribute("fill", "none");
+          tempPath.setAttribute("stroke", "#EB6D47");
+          tempPath.setAttribute("stroke-width", "3.2");
+          tempPath.setAttribute("stroke-linecap", "round");
+          tempLayer.appendChild(tempPath);
+
+          // Puntos y etiquetas de temperatura
+          tempPoints.forEach(function (pt, idx) {
+            var isSel = pt.stage.id === activeStageId;
+            var dot = document.createElementNS(ns, "circle");
+            dot.setAttribute("cx", pt.x.toFixed(1));
+            dot.setAttribute("cy", pt.y.toFixed(1));
+            dot.setAttribute("r", isSel ? "8" : "6.2");
+            dot.setAttribute("fill", "#EB6D47");
+            dot.setAttribute("stroke", "#FFF8E6");
+            dot.setAttribute("stroke-width", "2.5");
+            dot.style.cursor = "pointer";
+            dot.addEventListener("click", function () {
+              activeStageId = pt.stage.id;
+              renderCookingChart();
+            });
+            tempLayer.appendChild(dot);
+
+            // Posición del texto de temperatura para evitar superposición con la etiqueta de barra
+            var labelY = pt.y - 14;
+            var labelX = pt.x;
+            if (idx === 0) labelY = pt.y + 24; // 100°C debajo del primer punto como en el boceto
+            if (idx === 2) {
+              labelX = pt.x + 42;
+              labelY = pt.y + 6;
+            }
+
+            var tText = document.createElementNS(ns, "text");
+            tText.setAttribute("x", labelX.toFixed(1));
+            tText.setAttribute("y", labelY.toFixed(1));
+            tText.setAttribute("text-anchor", idx === 2 ? "start" : "middle");
+            tText.setAttribute("fill", "#EB6D47");
+            tText.setAttribute("stroke", "#FFF8E6");
+            tText.setAttribute("stroke-width", "4");
+            tText.setAttribute("paint-order", "stroke");
+            tText.setAttribute("font-family", "More Sugar, Fredoka, sans-serif");
+            tText.setAttribute("font-size", "15");
+            tText.setAttribute("font-weight", "700");
+            tText.textContent = pt.stage.tempLabel;
+            tempLayer.appendChild(tText);
+          });
+        }
+
+        // Inicialización
+        setSelectedDose(25);
+        renderCookingChart();
+      })();
+    </script>
+  </body>
+</html>
